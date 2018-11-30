@@ -13,7 +13,8 @@ const store = new Vuex.Store({
     'vuexNum': stores.vuexNum
   }
 })
-/* eslint-disable no-new */
+window.EventBus = new Vue();//存入全局事件监听
+window._router = router;//存入全局路由
 new Vue({
   el: '#app',
   router,

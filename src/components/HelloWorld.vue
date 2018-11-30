@@ -11,7 +11,7 @@
 </template>
 <script>
 import BasePage from '../assets/basePage';
-import tools from '@/assets/tools.js';
+import tools from '@/assets/tools';
 let HelloWorld = new BasePage()
 HelloWorld.data = function () {
   return {
