@@ -25,9 +25,19 @@ HelloWorld.computed = {
   }
 }
 HelloWorld.mounted = function () {
-  let arry = ['6','5','1','2','4','3','7'];
-  let newArry = tools.maopao(arry);
-  console.log(newArry);
+  // let arry = ['6','5','1','2','4','3','7'];
+  // let newArry = tools.maopao(arry);
+  // console.log(newArry);
+  /**
+   * 原型链理解
+   * */
+  var A = function() {};
+  var a = new A();
+  console.log(a.__proto__);  // A {};  实例对象a的原型是构造器A的原型对象console.log(a.__proto__.__proto__);
+  console.log(a.__proto__.__proto__);// Object {} 构造器A的原型是function Object的原型对象console.log(a.__proto__.__proto__.__proto__);
+  console.log(a.__proto__.__proto__.__proto__);// null
+
+
 }
 HelloWorld.methods = {
   goIndex: function () {
