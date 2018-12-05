@@ -60,8 +60,11 @@ HelloWorld.methods = {
       var F = function () {};// 空函数F:
       F.prototype = Parent.prototype;// 把F的原型指向Parent.prototype:
       Child.prototype = new F();// 把Child的原型指向一个新的F对象，F对象的原型正好指向Parent.prototype:
-      Child.prototype.constructor = Child;// 把Child原型的构造函数修复为Child:
-    }
+      /**
+      * 把Child原型的构造函数修复为Child
+       * 注意如果不修改constructor，那么他的实例的constructor就变成了F
+      * */
+      Child.prototype.constructor = Child;}
     //实现原型链继承
     inherits(PrimaryStudent,Student);
 
