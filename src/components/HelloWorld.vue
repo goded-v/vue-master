@@ -36,7 +36,8 @@ HelloWorld.mounted = function () {
   console.log(a.__proto__);  // A {};  实例对象a的原型是构造器A的原型对象console.log(a.__proto__.__proto__);
   console.log(a.__proto__.__proto__);// Object {} 构造器A的原型是function Object的原型对象console.log(a.__proto__.__proto__.__proto__);
   console.log(a.__proto__.__proto__.__proto__);// null
-  this.prototypeExtend();//js 原型继承方法
+  // this.prototypeExtend();//js 原型继承方法
+  this.classExtend();//class 继承方法
 }
 HelloWorld.methods = {
   goIndex: function () {
@@ -75,6 +76,32 @@ HelloWorld.methods = {
     }
     let xiaoMing = new PrimaryStudent('xiaoMing');
     console.log(xiaoMing);
+  },
+  classExtend:function () {//class 继承
+    class Student {
+      constructor(name){
+        this.name = name || '无名氏';
+      }
+      hello(){
+        console.log('Hello, ' + this.name + '!');
+      }
+    }
+    class PrimaryStudent extends Student { //class 继承
+      constructor(name, grade) {
+        /**
+         *  记得用super调用父类的构造方法!
+         *  这是重点
+         * */
+        super(name);
+        this.grade = grade || 1;
+      }
+      myGrade() {
+        console.log('I am at grade ' + this.grade);
+      }
+    }
+    let luozheng = new PrimaryStudent();
+    luozheng.hello();
+    luozheng.myGrade();
   }
 }
 export default HelloWorld
