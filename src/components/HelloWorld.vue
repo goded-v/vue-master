@@ -12,6 +12,7 @@
 <script>
 import BasePage from '../assets/basePage';
 import tools from '@/assets/tools';
+import {promise} from '@/assets/promise';
 let HelloWorld = new BasePage()
 HelloWorld.data = function () {
   return {
@@ -28,16 +29,37 @@ HelloWorld.mounted = function () {
   // let arry = ['6','5','1','2','4','3','7'];
   // let newArry = tools.maopao(arry);
   // console.log(newArry);
-  /**
-   * 原型链理解
-   * */
-  var A = function() {};
-  var a = new A();
-  console.log(a.__proto__);  // A {};  实例对象a的原型是构造器A的原型对象console.log(a.__proto__.__proto__);
-  console.log(a.__proto__.__proto__);// Object {} 构造器A的原型是function Object的原型对象console.log(a.__proto__.__proto__.__proto__);
-  console.log(a.__proto__.__proto__.__proto__);// null
+  // /**
+  //  * 原型链理解
+  //  * */
+  // var A = function() {};
+  // var a = new A();
+  // console.log(a.__proto__);  // A {};  实例对象a的原型是构造器A的原型对象console.log(a.__proto__.__proto__);
+  // console.log(a.__proto__.__proto__);// Object {} 构造器A的原型是function Object的原型对象console.log(a.__proto__.__proto__.__proto__);
+  // console.log(a.__proto__.__proto__.__proto__);// null
   // this.prototypeExtend();//js 原型继承方法
-  this.classExtend();//class 继承方法
+  // this.classExtend();//class 继承方法
+  // promise();
+  async function async1(){
+    console.log('async1 start')
+    await async2()
+    console.log('async1 end')
+  }
+  async function async2(){
+    console.log('async2')
+  }
+  console.log('script start')
+  setTimeout(function(){
+    console.log('setTimeout')
+  },0)
+  async1();
+  new Promise(function(resolve){
+    console.log('promise1')
+    resolve();
+  }).then(function(){
+    console.log('promise2')
+  })
+  console.log('script end')
 }
 HelloWorld.methods = {
   goIndex: function () {
