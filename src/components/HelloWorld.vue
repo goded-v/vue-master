@@ -64,7 +64,8 @@ HelloWorld.methods = {
       * 把Child原型的构造函数修复为Child
        * 注意如果不修改constructor，那么他的实例的constructor就变成了F
       * */
-      Child.prototype.constructor = Child;}
+      Child.prototype.constructor = Child;
+    }
     //实现原型链继承
     inherits(PrimaryStudent,Student);
 
