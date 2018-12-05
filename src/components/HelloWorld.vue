@@ -36,8 +36,7 @@ HelloWorld.mounted = function () {
   console.log(a.__proto__);  // A {};  实例对象a的原型是构造器A的原型对象console.log(a.__proto__.__proto__);
   console.log(a.__proto__.__proto__);// Object {} 构造器A的原型是function Object的原型对象console.log(a.__proto__.__proto__.__proto__);
   console.log(a.__proto__.__proto__.__proto__);// null
-
-
+  this.prototypeExtend();//js 原型继承方法
 }
 HelloWorld.methods = {
   goIndex: function () {
@@ -46,6 +45,33 @@ HelloWorld.methods = {
   numChange: function () {
     this.$store.commit('changeName');
   },
+  prototypeExtend:function () {//原型链继承方法
+    function Student(props) {
+      this.name = props.name || 'Unname';
+    }
+    Student.prototype.hello = function () {
+      console.log('Hello,' + this.name + '!');
+    }
+    function PrimaryStudent(props) {
+      Student.call(this,props);
+      this.grade = props.grade || 1;
+    }
+    function inherits(Child, Parent) {//原型链继承方法
+      var F = function () {};// 空函数F:
+      F.prototype = Parent.prototype;// 把F的原型指向Parent.prototype:
+      Child.prototype = new F();// 把Child的原型指向一个新的F对象，F对象的原型正好指向Parent.prototype:
+      Child.prototype.constructor = Child;// 把Child原型的构造函数修复为Child:
+    }
+    //实现原型链继承
+    inherits(PrimaryStudent,Student);
+
+    //绑定其他方法到PrimaryStudent原型
+    PrimaryStudent.prototype.geGrade = function () {
+      return this.grade;
+    }
+    let xiaoMing = new PrimaryStudent('xiaoMing');
+    console.log(xiaoMing);
+  }
 }
 export default HelloWorld
 </script>
