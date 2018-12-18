@@ -7,7 +7,7 @@ import App from '../App'
 import index from '@/components/index';
 import HelloWorld from '@/components/HelloWorld';
 Vue.use(Router)
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -28,6 +28,26 @@ export default new Router({
           ]
         }
       ]
+    },
+    {//路由通配符
+      path: '*',
+      redirect: 'HelloWorld'
     }
   ]
 })
+router.beforeEach((to, from, next) => {
+  if(to.fullPath.indexOf(window.backPathRouter)!= -1) window.backPathRouter="undefined";
+  if (to.meta.requireAuth){
+    if (window.localStorage['isLogin']) {
+      next();
+    }else {
+      next({
+        path: 'HelloWorld'
+      });
+      window.backPathRouter=to.fullPath;
+    }
+  }else {
+    next();
+  }
+});
+export  default router;
