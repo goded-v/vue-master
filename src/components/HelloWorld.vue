@@ -3,6 +3,10 @@
     <div class="content">
       <div @click="goIndex">{{msg}}</div>
       <div @click="numChange">vuex的值为{{vuexNum}}</div>
+      <div class="itemClass" style="background-color: red" @click="changeTheme('theme1')"></div>
+      <div class="itemClass" style="background-color: yellow" @click="changeTheme('theme2')"></div>
+      <div class="itemClass" style="background-color: black" @click="changeTheme('theme3')"></div>
+      <div class="itemClass-div">我是主题</div>
     </div>
     <transition :name="transitionName">
       <router-view></router-view>
@@ -40,28 +44,31 @@ HelloWorld.mounted = function () {
   // this.prototypeExtend();//js 原型继承方法
   // this.classExtend();//class 继承方法
   // promise();
-  async function async1(){
-    console.log('async1 start')
-    await async2()
-    console.log('async1 end')
-  }
-  async function async2(){
-    console.log('async2')
-  }
-  console.log('script start')
-  setTimeout(function(){
-    console.log('setTimeout')
-  },0)
-  async1();
-  new Promise(function(resolve){
-    console.log('promise1')
-    resolve();
-  }).then(function(){
-    console.log('promise2')
-  })
-  console.log('script end')
+  // async function async1(){
+  //   console.log('async1 start')
+  //   await async2()
+  //   console.log('async1 end')
+  // }
+  // async function async2(){
+  //   console.log('async2')
+  // }
+  // console.log('script start')
+  // setTimeout(function(){
+  //   console.log('setTimeout')
+  // },0)
+  // async1();
+  // new Promise(function(resolve){
+  //   console.log('promise1')
+  //   resolve();
+  // }).then(function(){
+  //   console.log('promise2')
+  // })
+  // console.log('script end')
 }
 HelloWorld.methods = {
+  changeTheme:function(theme){
+    window.document.documentElement.setAttribute('data-theme', theme)
+  },
   goIndex: function () {
     this.$router.push({path: 'HelloWorld/index'})
   },
@@ -128,7 +135,18 @@ HelloWorld.methods = {
 }
 export default HelloWorld
 </script>
-<style scoped >
+<style scoped lang="scss">
+  @import '../assets/scss/test';
+    .itemClass{
+      width: 100px;
+      height: 20px;
+    }
+  .itemClass-div{
+    width: 100px;
+    height: 200px;
+    margin:  100px auto;
+    @include bg_color();
+  }
   #HelloWorld{
     position: absolute;
     top: 0px;

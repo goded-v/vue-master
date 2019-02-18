@@ -21,11 +21,22 @@ index.data = function () {
   }
 }
 index.mounted = function () {
-  console.log(this)
+    this.init();
 }
 index.methods = {
   goBack: function () {
     this.$router.go(-1)
+  },
+  init:async function () {
+   await  this.test()
+    console.log(1)
+  },
+  test:function () {
+   console.log(2);
+   setTimeout(function () {
+     console.log(3);
+   },500)
+
   }
 }
 index.components={
