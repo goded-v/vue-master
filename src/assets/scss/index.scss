@@ -1,14 +1,15 @@
 @mixin bg_color(){
   background-color: #3f8e4d;//默认值
   [data-theme="theme1"] & {
+
     background-color: red;
     color: white;
-    font-size: 50px;
+    font-size: 20px;
   }
   [data-theme="theme2"] & {
     background-color: yellow;
     color: black;
-    font-size: 40px;
+    font-size: 20px;
   }
   [data-theme="theme3"] & {
     background-color: black;

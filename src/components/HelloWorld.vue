@@ -17,6 +17,7 @@
 import BasePage from '../assets/basePage';
 import tools from '@/assets/tools';
 import {promise} from '@/assets/promise';
+import {jsFactoryMode}from '@/assets/jsFactoryMode'
 let HelloWorld = new BasePage()
 HelloWorld.data = function () {
   return {
@@ -29,6 +30,9 @@ HelloWorld.computed = {
     return this.$store.state.vuexNum.vuexNum
   }
 }
+HelloWorld.created = function(){
+
+},
 HelloWorld.mounted = function () {
   // let arry = ['6','5','1','2','4','3','7'];
   // let newArry = tools.maopao(arry);
@@ -64,13 +68,40 @@ HelloWorld.mounted = function () {
   //   console.log('promise2')
   // })
   // console.log('script end')
+  let arr = [1,3,2,8,5,7,6,]
+  let me = this;
+  let newArr = me.quicksort(arr);
+  console.log(newArr);
+  var p1 = new jsFactoryMode.CreatePerson('小明','28','男');
+  console.log(p1)
 }
 HelloWorld.methods = {
+   quicksort:function(arr){
+     debugger
+  if(arr.length<=1){
+    return arr;
+  }
+  var pivotIndex=Math.floor(arr.length/2);
+  var pivot=arr.splice(pivotIndex,1)[0];
+
+  var left=[];
+  var right=[];
+  for(var i=0;i<arr.length;i++){
+    if(arr[i]<pivot){
+      left.push(arr[i]);
+    }else{
+      right.push(arr[i]);
+    }
+  }
+
+  return this.quicksort(left).concat([pivot],this.quicksort(right));
+},
   changeTheme:function(theme){
     window.document.documentElement.setAttribute('data-theme', theme)
   },
   goIndex: function () {
-    this.$router.push({path: 'HelloWorld/index'})
+    // this.$router.push({path: 'HelloWorld/index',query:{id:'123'}})
+    this.$router.push({path: 'HelloWorld/index',params:{id:'123'}})
   },
   numChange: function () {
     this.$store.commit('changeName');

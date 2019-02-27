@@ -8,6 +8,7 @@
           <li v-for="(item,index) in user.data">{{item.name}}：得分：{{item.pts}},篮板：{{item.ba}},助攻：{{item.to}}</li>
         </div>
       </child-slot>
+      <div class="indexContent"></div>
     </div>
   </div>
 </template>
@@ -20,8 +21,21 @@ index.data = function () {
     msg: 'Welcome to Your Vue.js App'
   }
 }
+index.created = function(){
+  debugger
+  let id;
+  id = this.$route.query.id ;
+};
 index.mounted = function () {
     this.init();
+    let a = [0,1,2,3];
+    let b;
+    let c = a;
+    b =  a;
+    b[0]=2;
+    console.log(a);
+    console.log(b);
+    console.log(c);
 }
 index.methods = {
   goBack: function () {
@@ -45,7 +59,14 @@ index.components={
 export default index
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  @import '../assets/scss/index.scss';
+  .indexContent{
+    @include bg_color();
+    width: 100%;
+    height: 200px;
+    /*background-color: red;*/
+  }
 #index{
   position: absolute;
   top: 0px;
