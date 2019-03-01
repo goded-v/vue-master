@@ -14,10 +14,10 @@
   </div>
 </template>
 <script>
-import BasePage from '../assets/basePage';
-import tools from '@/assets/tools';
-import {promise} from '@/assets/promise';
-import {jsFactoryMode}from '@/assets/jsFactoryMode'
+import BasePage from '../assets/basePage'
+import tools from '@/assets/tools'
+import {promise} from '@/assets/promise'
+// import {jsFactoryMode} from '@/assets/jsFactoryMode'
 let HelloWorld = new BasePage()
 HelloWorld.data = function () {
   return {
@@ -30,10 +30,8 @@ HelloWorld.computed = {
     return this.$store.state.vuexNum.vuexNum
   }
 }
-HelloWorld.created = function(){
-
-},
 HelloWorld.mounted = function () {
+
   // let arry = ['6','5','1','2','4','3','7'];
   // let newArry = tools.maopao(arry);
   // console.log(newArry);
@@ -68,100 +66,118 @@ HelloWorld.mounted = function () {
   //   console.log('promise2')
   // })
   // console.log('script end')
-  let arr = [1,3,2,8,5,7,6,]
-  let me = this;
-  let newArr = me.quicksort(arr);
-  console.log(newArr);
-  var p1 = new jsFactoryMode.CreatePerson('小明','28','男');
-  console.log(p1)
+  let arr = [1, 3, 2, 8, 5, 7, 6]
+  let me = this
+  // let newArr = me.quicksort(arr)
+  let newArr = me.selection_sort(arr)
+  console.log(newArr)
+  // var p1 = new jsFactoryMode.CreatePerson('小明', '28', '男')
+  // console.log(p1)
 }
 HelloWorld.methods = {
-   quicksort:function(arr){
-     debugger
-  if(arr.length<=1){
-    return arr;
-  }
-  var pivotIndex=Math.floor(arr.length/2);
-  var pivot=arr.splice(pivotIndex,1)[0];
-
-  var left=[];
-  var right=[];
-  for(var i=0;i<arr.length;i++){
-    if(arr[i]<pivot){
-      left.push(arr[i]);
-    }else{
-      right.push(arr[i]);
+  selection_sort:function (arr) {
+    debugger
+  var len = arr.length;
+  var minIndex, swap;
+  for (var i = 0; i < len - 1; i++) {
+    minIndex = i;
+    for (var j = i + 1; j < len; j++) {
+      if (arr[j] < arr[minIndex]) { //寻找最小的数
+        minIndex = j; //将最小数的索引保存
+      }
     }
+    swap = arr[i];
+    arr[i] = arr[minIndex];
+    arr[minIndex] = swap;
   }
-
-  return this.quicksort(left).concat([pivot],this.quicksort(right));
+  return arr;
 },
-  changeTheme:function(theme){
+  quicksort: function (arr) {
+    debugger
+    if (arr.length <= 1) {
+      return arr
+    }
+    var pivotIndex = Math.floor(arr.length / 2)
+    var pivot = arr.splice(pivotIndex, 1)[0]
+
+    var left = []
+    var right = []
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] < pivot){
+        left.push(arr[i])
+      } else {
+        right.push(arr[i])
+      }
+    }
+
+    return this.quicksort(left).concat([pivot], this.quicksort(right))
+  },
+  changeTheme: function (theme) {
     window.document.documentElement.setAttribute('data-theme', theme)
   },
   goIndex: function () {
     // this.$router.push({path: 'HelloWorld/index',query:{id:'123'}})
-    this.$router.push({path: 'HelloWorld/index',params:{id:'123'}})
+    this.$router.push({path: 'HelloWorld/index', params: {id: '123'}})
   },
   numChange: function () {
-    this.$store.commit('changeName');
+    this.$store.commit('changeName')
   },
-  prototypeExtend:function () {//原型链继承方法
-    function Student(props) {
-      this.name = props.name || 'Unname';
+  prototypeExtend: function () { // 原型链继承方法
+    function Student (props) {
+      this.name = props.name || 'Unname'
     }
     Student.prototype.hello = function () {
-      console.log('Hello,' + this.name + '!');
+      console.log('Hello,' + this.name + '!')
     }
-    function PrimaryStudent(props) {
-      Student.call(this,props);
-      this.grade = props.grade || 1;
+    function PrimaryStudent (props) {
+      Student.call(this, props)
+      this.grade = props.grade || 1
     }
-    function inherits(Child, Parent) {//原型链继承方法
-      var F = function () {};// 空函数F:
-      F.prototype = Parent.prototype;// 把F的原型指向Parent.prototype:
-      Child.prototype = new F();// 把Child的原型指向一个新的F对象，F对象的原型正好指向Parent.prototype:
+    function inherits (Child, Parent) { // 原型链继承方法
+      var F = function () {}// 空函数F:
+      F.prototype = Parent.prototype// 把F的原型指向Parent.prototype:
+      Child.prototype = new F()// 把Child的原型指向一个新的F对象，F对象的原型正好指向Parent.prototype:
       /**
       * 把Child原型的构造函数修复为Child
        * 注意如果不修改constructor，那么他的实例的constructor就变成了F
       * */
-      Child.prototype.constructor = Child;
+      Child.prototype.constructor = Child
     }
-    //实现原型链继承
-    inherits(PrimaryStudent,Student);
+    // 实现原型链继承
+    inherits(PrimaryStudent, Student)
 
-    //绑定其他方法到PrimaryStudent原型
+    // 绑定其他方法到PrimaryStudent原型
     PrimaryStudent.prototype.geGrade = function () {
-      return this.grade;
+      return this.grade
     }
-    let xiaoMing = new PrimaryStudent('xiaoMing');
-    console.log(xiaoMing);
+    let xiaoMing = new PrimaryStudent('xiaoMing')
+    console.log(xiaoMing)
   },
-  classExtend:function () {//class 继承
+  classExtend: function () { // class 继承
     class Student {
-      constructor(name){
-        this.name = name || '无名氏';
+      constructor (name) {
+        this.name = name || '无名氏'
       }
-      hello(){
-        console.log('Hello, ' + this.name + '!');
+      hello () {
+        console.log('Hello, ' + this.name + '!')
       }
     }
-    class PrimaryStudent extends Student { //class 继承
-      constructor(name, grade) {
+    class PrimaryStudent extends Student { // class 继承
+      constructor (name, grade) {
         /**
          *  记得用super调用父类的构造方法!
          *  这是重点
          * */
-        super(name);
-        this.grade = grade || 1;
+        super(name)
+        this.grade = grade || 1
       }
-      myGrade() {
-        console.log('I am at grade ' + this.grade);
+      myGrade () {
+        console.log('I am at grade ' + this.grade)
       }
     }
-    let luozheng = new PrimaryStudent();
-    luozheng.hello();
-    luozheng.myGrade();
+    let luozheng = new PrimaryStudent()
+    luozheng.hello()
+    luozheng.myGrade()
   }
 }
 export default HelloWorld

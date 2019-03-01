@@ -24,7 +24,7 @@ const router = new Router({
             {
               path: 'index',
               component: index
-            },
+            }
           ]
         }
       ]
@@ -50,4 +50,4 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-export  default router;
+export default router;

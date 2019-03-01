@@ -16,7 +16,7 @@ export const jsFactoryMode ={
       return this.name;
     }
     return obj;
-  },
+  }
 }
 
 var BicycleShop = function (name) {
@@ -39,10 +39,10 @@ BicycleShop.prototype = {
   },
   createBicycle:function (modle) {
     throw new Error("父类是抽象类不能直接调用，需要之类重写该方法");
-  },
+  }
 };
 //实现原型链继承
-function extend(Sub,Sup){
+function extend (Sub,Sup){
   //Sub表示子类 ，Sup表示超类
   //先定义一个空函数
   var F = function () {
@@ -78,11 +78,11 @@ var BicycleChild = function (name) {
 extend(BicycleChild,BicycleShop);
 
 // BicycleChild 子类重写父类的方法
-BicycleChild.prototype.createBicycle = function(){
-  var A = function(){
+BicycleChild.prototype.createBicycle = function (){
+  var A = function (){
     console.log("执行A业务操作");
   };
-  var B = function(){
+  var B = function (){
     console.log("执行B业务操作");
   };
   return {
