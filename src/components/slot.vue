@@ -9,11 +9,11 @@
     export default {
         name: "slot-part",
        data:function () {
-        return{
+        return {
           list:[
-            {'name':'jordan','pts':'30','ba':'7','to':'5'},
-            {'name':'james','pts':'28','ba':'7','to':'7'},
-            {'name':'kobe','pts':'25','ba':'5','to':'5'}
+            {'name':'jordan', 'pts':'30', 'ba':'7', 'to':'5'},
+            {'name':'james', 'pts':'28', 'ba':'7', 'to':'7'},
+            {'name':'kobe', 'pts':'25', 'ba':'5', 'to':'5'}
             ]
         }
       }

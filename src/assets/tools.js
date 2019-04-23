@@ -1,13 +1,13 @@
  const tools = {
-  maopao:function (arry) {//冒泡排序
-    if(arry.length == null||arry.length==undefined){
+  maopao:function (arry) { // 冒泡排序
+    if (arry.length === null || arry.length === undefined){
       return
     }
-    for (var i = 0,len = arry.length;i< len;i++){
-      for (var j = 0;j<len-1-i;j++){//依次比较相邻的两个数据
-        if(arry[j] > arry[j+1]){
-          var temp = arry[j+1];
-          arry[j+1] = arry[j];
+    for (var i = 0, len = arry.length; i < len; i++){
+      for (var j = 0; j < len - 1 - i; j++){ // 依次比较相邻的两个数据
+        if (arry[j] > arry[j + 1]){
+          var temp = arry[j + 1];
+          arry[j + 1] = arry[j];
           arry[j] = temp;
         }
       }

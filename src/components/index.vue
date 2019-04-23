@@ -22,7 +22,7 @@ index.data = function () {
   }
 }
 index.created = function () {
-  let id = this.$route.query.id
+  // let id = this.$route.query.id
 }
 index.mounted = function () {
   this.init()

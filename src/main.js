@@ -14,8 +14,8 @@ const store = new Vuex.Store({
   }
 })
 window.document.documentElement.setAttribute('data-theme', 'theme2');
-window.EventBus = new Vue();//存入全局事件监听
-window._router = router;//存入全局路由
+window.EventBus = new Vue();// 存入全局事件监听
+window._router = router;// 存入全局路由
 new Vue({
   el: '#app',
   router,

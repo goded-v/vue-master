@@ -4,7 +4,7 @@ stores.vuexNum = {
     vuexNum: 1
   },
   mutations: {
-    changeName: function (state, param) {
+    changeName: function (state) {
       state.vuexNum++;
     }
   }

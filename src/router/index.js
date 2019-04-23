@@ -29,24 +29,24 @@ const router = new Router({
         }
       ]
     },
-    {//路由通配符
+    {// 路由通配符
       path: '*',
       redirect: 'HelloWorld'
     }
   ]
 })
 router.beforeEach((to, from, next) => {
-  if(to.fullPath.indexOf(window.backPathRouter)!= -1) window.backPathRouter="undefined";
+  if (to.fullPath.indexOf(window.backPathRouter) !== -1) window.backPathRouter = "undefined";
   if (to.meta.requireAuth){
     if (window.localStorage['isLogin']) {
       next();
-    }else {
+    } else {
       next({
         path: 'HelloWorld'
       });
-      window.backPathRouter=to.fullPath;
+      window.backPathRouter = to.fullPath;
     }
-  }else {
+  } else {
     next();
   }
 });

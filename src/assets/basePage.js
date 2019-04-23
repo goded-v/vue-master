@@ -8,7 +8,7 @@ class basePage {
     this.mixins = [mixin]
   }
 }
-/***
+/**
  *const basePage = function () {
  *       this.mixins = [mixin]
  *  }
