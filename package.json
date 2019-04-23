@@ -11,7 +11,9 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "postinstall": "npm run hooks",
+    "hooks": "cp .git-hooks/* .git/hooks/"
   },
   "dependencies": {
     "node-sass": "^4.11.0",
