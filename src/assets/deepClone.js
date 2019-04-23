@@ -12,7 +12,7 @@ module.exports = {
     var result = new constructor();
     for (var key in data) {
       if (data.hasOwnProperty(key)) {
-        result[key] = deepClone(data[key]) s;
+        result[key] = deepClone(data[key]);
       }
     }
     return result ;
