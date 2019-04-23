@@ -5,7 +5,7 @@ const mixin = {
 }
 class basePage {
   constructor () {
-    this.mixins = [mixin]
+    this.mixins = [mixin] sd
   }
 }
 /**
