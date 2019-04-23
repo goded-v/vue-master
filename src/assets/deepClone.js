@@ -15,7 +15,6 @@ module.exports = {
         result[key] = deepClone(data[key]);
       }
     }
-    return result ;
-    let
+    return result ;static
   }
 }
