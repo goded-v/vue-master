@@ -76,7 +76,6 @@ HelloWorld.mounted = function () {
 }
 HelloWorld.methods = {
   selection_sort:function (arr) {
-    debugger
   var len = arr.length;
   var minIndex, swap;
   for (var i = 0; i < len - 1; i++) {
@@ -93,7 +92,6 @@ HelloWorld.methods = {
   return arr;
 },
   quicksort: function (arr) {
-    debugger
     if (arr.length <= 1) {
       return arr
     }
