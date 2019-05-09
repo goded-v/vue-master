@@ -13,7 +13,39 @@
       }
     }
     return arry;
-  }
+  },
+   // 统计一个字符串出现最多的字母
+   countMaxstr: function (str) {
+     if (str.length === 0) return "字符串为空";
+     if (str.length === 1) return [str, 1];
+     let arr = [];
+     let numArr = []
+     for (var i = 0; i < str.length; i++) {
+       let num = 0;
+       let x = str[i];
+       if (arr.indexOf(x) === -1) {
+         for (var j = 0; j < str.length; j++) {
+           if (str[j] === x) {
+             num++;
+           }
+         }
+         numArr.push(num);
+         arr.push(x);
+       }
+     }
+     let maxNum = Math.max(...numArr);
+     let maxStr = arr[numArr.indexOf(maxNum)];
+     return [maxStr, maxNum];
+   },
+
+   // 不借助临时变量，进行两个整数的交换
+   changeLocation : function (a,b) {
+     b = b - a;
+     a = a + b;
+     a = a - b;
+     return [a,b];
+   }
+
 }
 export default tools;
 /**

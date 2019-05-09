@@ -16,5 +16,17 @@ module.exports = {
       }
     }
     return result ;
+  },
+  deepClone2:function (p, c) {
+    var c = c || {};
+    for(var i in p){
+      if(typeof p[i] === 'object'){
+        c[i] = (p[i].constructor === Array) ? [] : {};
+        deepClone2(p[i],c[i]);
+      }else{
+        c[i] = p[i];
+      }
+    }
   }
+  
 }
