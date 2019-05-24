@@ -2,6 +2,7 @@
   <div id="HelloWorld">
     <div class="content">
       <div @click="goIndex">{{msg}}</div>
+      <div @click="goBall">悬浮球</div>
       <div @click="numChange">vuex的值为{{vuexNum}}</div>
       <div class="itemClass" style="background-color: red" @click="changeTheme('theme1')"></div>
       <div class="itemClass" style="background-color: yellow" @click="changeTheme('theme2')"></div>
@@ -116,6 +117,9 @@ HelloWorld.methods = {
   goIndex: function () {
     // this.$router.push({path: 'HelloWorld/index',query:{id:'123'}})
     this.$router.push({path: 'HelloWorld/index', params: {id: '123'}})
+  },
+  goBall: function () {
+    this.$router.push({path: "HelloWorld/ball"})
   },
   numChange: function () {
     this.$store.commit('changeName')

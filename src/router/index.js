@@ -6,6 +6,7 @@ import App from '../App'
 // var HelloWorld = r => require.ensure([], () => r(require('@/components/HelloWorld')), 'HelloWorld', 'HelloWorld')
 import index from '@/components/index';
 import HelloWorld from '@/components/HelloWorld';
+import ball from '@/components/ball';
 Vue.use(Router)
 const router = new Router({
   routes: [
@@ -24,6 +25,10 @@ const router = new Router({
             {
               path: 'index',
               component: index
+            },
+            {
+              path: "ball",
+              component: ball
             }
           ]
         }
