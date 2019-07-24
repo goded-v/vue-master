@@ -7,6 +7,7 @@
       <div class="itemClass" style="background-color: yellow" @click="changeTheme('theme2')"></div>
       <div class="itemClass" style="background-color: black" @click="changeTheme('theme3')"></div>
       <div class="itemClass-div">我是主题</div>
+      <worldShow></worldShow>
     </div>
     <transition :name="transitionName">
       <router-view></router-view>
@@ -18,6 +19,7 @@ import BasePage from '../assets/basePage'
 // import tools from '@/assets/tools'
 // import {promise} from '@/assets/promise'
 // import {jsFactoryMode} from '@/assets/jsFactoryMode'
+import worldShow from '@/components/worldShow.vue'
 let HelloWorld = new BasePage()
 HelloWorld.data = function () {
   return {
@@ -177,6 +179,9 @@ HelloWorld.methods = {
     luozheng.hello()
     luozheng.myGrade()
   }
+},
+HelloWorld.components={
+  "worldShow":worldShow
 }
 export default HelloWorld
 </script>
