@@ -8,5 +8,6 @@ stores.vuexNum = {
       state.vuexNum++;
     }
   }
+  // b的改动
 }
 export default stores
