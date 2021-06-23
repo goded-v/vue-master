@@ -10,6 +10,10 @@ stores.vuexNum = {
     changeNameB: function (state) {
       state.vuexNum++;
     }
+  },
+  // A的修改
+  changeNameB: function (state) {
+    state.vuexNum++;
   }
   // b的改动
 }
