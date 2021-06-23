@@ -12,5 +12,6 @@ stores.vuexNum = {
   changeNameA: function (state) {
     state.vuexNum++;
   }
+  // b的改动
 }
 export default stores
