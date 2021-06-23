@@ -6,6 +6,9 @@ stores.vuexNum = {
   mutations: {
     changeName: function (state) {
       state.vuexNum++;
+    },
+    changeNameB: function (state) {
+      state.vuexNum++;
     }
   }
   // b的改动
