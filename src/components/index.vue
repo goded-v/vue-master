@@ -56,13 +56,13 @@ index.components = {
 export default index
 </script>
 
-<style scoped lang="scss">
-  @import '../assets/scss/index.scss';
-  .indexContent{
-    @include bg_color();
-    width: 100%;
-    height: 200px;
-  }
+<style scoped>
+  /*@import '../assets/scss/index.scss';*/
+  /*.indexContent{*/
+  /*  @include bg_color();*/
+  /*  width: 100%;*/
+  /*  height: 200px;*/
+  /*}*/
 #index{
   position: absolute;
   top: 0px;

@@ -8,6 +8,7 @@
       <div class="itemClass" style="background-color: yellow" @click="changeTheme('theme2')"></div>
       <div class="itemClass" style="background-color: black" @click="changeTheme('theme3')"></div>
       <div class="itemClass-div">我是主题</div>
+      <div ></div>
     </div>
     <transition :name="transitionName">
       <router-view></router-view>
@@ -184,8 +185,8 @@ HelloWorld.methods = {
 }
 export default HelloWorld
 </script>
-<style scoped lang="scss">
-  @import '../assets/scss/test';
+<style scoped>
+  /*@import '../assets/scss/test';*/
     .itemClass{
       width: 100px;
       height: 20px;
